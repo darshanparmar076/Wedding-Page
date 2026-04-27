@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chhotalia Wedding 2026 – Trupti & Sagar | Darshan & Anjali</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --gold: #c9963a;
+    --gold-light: #e8c46a;
+    --deep: #2b1a0e;
+    --burgundy: #7a1f3d;
+    --green: #3a5a40;
+    --rose: #e8b4b8;
+    --text: #3d2b1f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── MUSIC TOGGLE ── */
+  #music-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--burgundy));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.3s;
+  }
+  #music-btn:hover { transform: scale(1.12); }
+  #music-btn.playing { animation: pulse-btn 1.8s infinite; }
+  @keyframes pulse-btn {
+    0%,100% { box-shadow: 0 4px 20px rgba(201,150,58,0.4); }
+    50% { box-shadow: 0 4px 34px rgba(201,150,58,0.9); }
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px 40px;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 10% 20%, rgba(201,150,58,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 80%, rgba(122,31,61,0.10) 0%, transparent 55%),
+      var(--cream);
+    overflow: hidden;
+  }
+
+  /* Floating petals */
+  .petal {
+    position: absolute;
+    width: 14px;
+    height: 22px;
+    border-radius: 50% 0 50% 0;
+    opacity: 0;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0%   { transform: translateY(-40px) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .diya {
+    font-size: 64px;
+    animation: glow 2.5s ease-in-out infinite alternate;
+    margin-bottom: 12px;
+  }
+  @keyframes glow {
+    from { filter: drop-shadow(0 0 6px #e8c46a); }
+    to   { filter: drop-shadow(0 0 22px #e8c46a) drop-shadow(0 0 8px #c9963a); }
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(14px, 3vw, 18px);
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(28px, 6vw, 62px);
+    line-height: 1.15;
+    color: var(--deep);
+    margin: 16px 0 10px;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+  .hero-title span { color: var(--gold); }
+
+  .hero-divider {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 24px auto;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+  }
+
+  .hero-dates {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+  }
+  .hero-date-box {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(13px, 2.5vw, 16px);
+    letter-spacing: 2px;
+    color: var(--burgundy);
+    text-align: center;
+  }
+  .hero-date-box strong {
+    display: block;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600;
+    color: var(--deep);
+    letter-spacing: 0;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── ORNAMENT ── */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 28px;
+    letter-spacing: 6px;
+    margin: 12px 0;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+
+  .section-label {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(22px, 4vw, 38px);
+    color: var(--deep);
+    margin-bottom: 14px;
+  }
+
+  .section-line {
+    width: 120px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 56px;
+  }
+
+  /* ── COUPLES ── */
+  .couples-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  @media(max-width:700px) { .couples-grid { grid-template-columns: 1fr; } }
+
+  .couple-card {
+    background: white;
+    border: 1px solid rgba(201,150,58,0.25);
+    border-radius: 4px;
+    padding: 44px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s, box-shadow 0.4s;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .couple-card.visible {
+    animation: cardIn 0.7s forwards;
+  }
+  @keyframes cardIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .couple-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 48px rgba(43,26,14,0.12);
+  }
+  .couple-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--burgundy), var(--gold), var(--burgundy));
+  }
+
+  .couple-emoji {
+    font-size: 72px;
+    margin-bottom: 20px;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+  }
+
+  .couple-names {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(16px, 3vw, 22px);
+    color: var(--deep);
+    margin-bottom: 8px;
+  }
+  .couple-names .amp {
+    color: var(--gold);
+    font-size: 0.9em;
+  }
+
+  .couple-wedding-date {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 22px;
+    border: 1px solid var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+
+  .couple-families {
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #8a7060;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  /* ── COUNTDOWN ── */
+  #countdown-section {
+    background: linear-gradient(135deg, var(--deep) 0%, var(--burgundy) 100%);
+    max-width: 100%;
+    padding: 72px 24px;
+  }
+  #countdown-section .section-title { color: white; }
+  #countdown-section .section-label { color: var(--gold-light); }
+  #countdown-section .section-line { background: linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+
+  .countdown-grid {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .count-box {
+    text-align: center;
+    min-width: 100px;
+  }
+  .count-num {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(42px, 8vw, 72px);
+    color: var(--gold-light);
+    line-height: 1;
+    display: block;
+  }
+  .count-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+    font-weight: 300;
+  }
+  .count-sep {
+    font-size: 48px;
+    color: var(--gold);
+    align-self: center;
+    opacity: 0.5;
+    padding-bottom: 20px;
+  }
+
+  /* ── EVENTS TIMELINE ── */
+  .events-section { background: var(--cream); }
+
+  .timeline {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 1.5px;
+    background: linear-gradient(180deg, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+    transform: translateX(-50%);
+  }
+  @media(max-width:600px) {
+    .timeline::before { left: 20px; }
+  }
+
+  .event-item {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 48px;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  .event-item.from-right { transform: translateX(30px); }
+  .event-item.visible { opacity: 1; transform: translateX(0); }
+
+  .event-item:nth-child(even) { flex-direction: row-reverse; }
+  @media(max-width:600px) {
+    .event-item, .event-item:nth-child(even) {
+      flex-direction: row;
+      padding-left: 52px;
+    }
+  }
+
+  .event-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--gold);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  @media(max-width:600px) {
+    .event-dot { left: 20px; }
+  }
+
+  .event-card {
+    background: white;
+    border: 1px solid rgba(201,150,58,0.2);
+    border-radius: 3px;
+    padding: 22px 28px;
+    width: calc(50% - 36px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+  }
+  .event-card:hover { transform: translateY(-3px); }
+  @media(max-width:600px) { .event-card { width: 100%; } }
+
+  .event-icon { font-size: 28px; margin-bottom: 10px; }
+  .event-name {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 14px;
+    color: var(--deep);
+    margin-bottom: 6px;
+  }
+  .event-datetime {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--burgundy);
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+  .event-venue {
+    font-size: 12px;
+    color: #9a8070;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── VENUE ── */
+  .venue-section { background: #faf3e8; }
+
+  .venue-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  @media(max-width:640px) { .venue-cards { grid-template-columns: 1fr; } }
+
+  .venue-card {
+    background: white;
+    border: 1px solid rgba(201,150,58,0.25);
+    border-radius: 4px;
+    padding: 40px 32px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .venue-card.visible { opacity: 1; transform: scale(1); }
+
+  .venue-icon { font-size: 48px; margin-bottom: 18px; }
+  .venue-event { font-family: 'Cinzel Decorative', cursive; font-size: 13px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px; }
+  .venue-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--deep); margin-bottom: 12px; line-height: 1.4; }
+  .venue-addr { font-size: 13px; color: #8a7060; line-height: 1.8; }
+
+  /* ── HOST ── */
+  .host-section { text-align: center; }
+  .host-card {
+    display: inline-block;
+    background: white;
+    border: 1px solid rgba(201,150,58,0.3);
+    padding: 48px 56px;
+    max-width: 580px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .host-card.visible { opacity: 1; transform: translateY(0); }
+  .host-flag { font-size: 56px; margin-bottom: 16px; }
+  .host-name { font-family: 'Cinzel Decorative', cursive; font-size: clamp(18px, 4vw, 28px); color: var(--deep); margin-bottom: 12px; }
+  .host-address { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: #7a6050; line-height: 1.9; }
+  .host-phone { margin-top: 18px; font-size: 14px; letter-spacing: 1px; color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  footer .footer-title {
+    font-family: 'Cinzel Decorative', cursive;
+    color: var(--gold-light);
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Divider mandala */
+  .mandala-divider {
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 8px;
+    color: rgba(201,150,58,0.5);
+    margin: 8px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bg-music" loop>
+  <!-- Using a royalty-free Indian classical / shehnai melody from a CDN -->
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Music Toggle -->
+<button id="music-btn" title="Toggle music">🎵</button>
+
+<!-- ══════════ HERO ══════════ -->
+<div id="hero">
+  <!-- Floating petals -->
+  <script>
+    (function(){
+      const colors = ['#e8b4b8','#f9d29d','#c9963a','#d4a0a8','#f5e6c8'];
+      for(let i=0;i<22;i++){
+        const p = document.createElement('div');
+        p.className = 'petal';
+        p.style.cssText = `
+          left:${Math.random()*100}%;
+          background:${colors[Math.floor(Math.random()*colors.length)]};
+          width:${8+Math.random()*10}px;
+          height:${14+Math.random()*12}px;
+          animation-duration:${5+Math.random()*8}s;
+          animation-delay:${Math.random()*6}s;
+          border-radius:${Math.random()>0.5?'50% 0 50% 0':'0 50% 0 50%'};
+        `;
+        document.getElementById('hero').appendChild(p);
+      }
+    })();
+  </script>
+
+  <div class="diya">🪔</div>
+  <p class="hero-subtitle">With the blessings of Shri Chamunda Mata</p>
+  <h1 class="hero-title">
+    Shubh <span>Vivah</span>
+  </h1>
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="hero-divider"></div>
+  <div class="hero-dates">
+    <div class="hero-date-box">
+      <strong>8 May 2026</strong>
+      Friday · Trupti & Sagar
+    </div>
+    <div style="font-size:32px;color:var(--gold);align-self:center;">❦</div>
+    <div class="hero-date-box">
+      <strong>9 May 2026</strong>
+      Saturday · Darshan & Anjali
+    </div>
+  </div>
+  <p style="margin-top:32px;font-size:14px;letter-spacing:2px;color:#9a8070;animation:fadeUp 1s 1.2s forwards;opacity:0;">CHHOTALIA PARIVAR</p>
+</div>
+
+<!-- ══════════ COUPLES ══════════ -->
+<section>
+  <p class="section-label reveal">The Beautiful Couples</p>
+  <h2 class="section-title reveal">Two Hearts, One Family</h2>
+  <div class="section-line reveal"></div>
+
+  <div class="couples-grid">
+
+    <!-- Couple 1 -->
+    <div class="couple-card reveal">
+      <span class="couple-emoji">👰🤵</span>
+      <div class="couple-names">
+        Chi. Trupti <span class="amp">&amp;</span> Chi. Sagar
+      </div>
+      <div class="couple-families">
+        Daughter of A.Sau. Nitaben &amp; Shri Gunavantbhai Vallabhbhai Chhotalia<br>
+        Son of A.Sau. Rekhaaben &amp; Shri Pravinbhai Punabhai Vaghela, Ratol (Mahuva)
+      </div>
+      <span class="couple-wedding-date">Friday · 8 May 2026</span>
+    </div>
+
+    <!-- Couple 2 -->
+    <div class="couple-card reveal" style="animation-delay:0.2s">
+      <span class="couple-emoji">💑</span>
+      <div class="couple-names">
+        Chi. Darshan <span class="amp">&amp;</span> Chi. Anjali
+      </div>
+      <div class="couple-families">
+        Son of A.Sau. Mayaben &amp; Shri Vipulkumar Vallabhbhai Chhotalia<br>
+        Daughter of A.Sau. Vimalaben &amp; Shri Manishbhai Odhavjibhai Vala, Rajula
+      </div>
+      <span class="couple-wedding-date">Saturday · 9 May 2026</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ COUNTDOWN ══════════ -->
+<div id="countdown-section">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px;">
+    <p class="section-label">Counting Every Moment</p>
+    <h2 class="section-title" style="margin-bottom:14px;">Until the First Wedding</h2>
+    <div class="section-line"></div>
+    <div class="countdown-grid">
+      <div class="count-box">
+        <span class="count-num" id="cd-days">--</span>
+        <span class="count-label">Days</span>
+      </div>
+      <span class="count-sep">:</span>
+      <div class="count-box">
+        <span class="count-num" id="cd-hours">--</span>
+        <span class="count-label">Hours</span>
+      </div>
+      <span class="count-sep">:</span>
+      <div class="count-box">
+        <span class="count-num" id="cd-mins">--</span>
+        <span class="count-label">Minutes</span>
+      </div>
+      <span class="count-sep">:</span>
+      <div class="count-box">
+        <span class="count-num" id="cd-secs">--</span>
+        <span class="count-label">Seconds</span>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:32px;color:rgba(255,255,255,0.45);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:17px;">
+      "Samayni ghadi chhe nyari, kudratni krupa chhe pyari…"
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ EVENTS ══════════ -->
+<section class="events-section">
+  <p class="section-label reveal">All the Celebrations</p>
+  <h2 class="section-title reveal">Wedding Events</h2>
+  <div class="section-line reveal"></div>
+
+  <div class="timeline">
+
+    <div class="event-item reveal">
+      <div class="event-dot" style="position:relative;left:auto;transform:none;flex-shrink:0;margin-top:18px;"></div>
+      <div class="event-card">
+        <div class="event-icon">🎶</div>
+        <div class="event-name">Sanjina Geet</div>
+        <div class="event-datetime">Wednesday, 6 May 2026 · 4:00 PM</div>
+        <div class="event-venue">Shri Kanjibhapu Upvan Vadi, Savarkundla</div>
+      </div>
+    </div>
+
+    <div class="event-item from-right reveal">
+      <div class="event-dot" style="position:relative;left:auto;transform:none;flex-shrink:0;margin-top:18px;"></div>
+      <div class="event-card">
+        <div class="event-icon">🏛️</div>
+        <div class="event-name">Mandap Muhurt</div>
+        <div class="event-datetime">Thursday, 7 May 2026 · 6:00 AM</div>
+        <div class="event-venue">At Our Residence, Savarkundla</div>
+      </div>
+    </div>
+
+    <div class="event-item reveal">
+      <div class="event-dot" style="position:relative;left:auto;transform:none;flex-shrink:0;margin-top:18px;"></div>
+      <div class="event-card">
+        <div class="event-icon">🪘</div>
+        <div class="event-name">Ruda Mamera</div>
+        <div class="event-datetime">Thursday, 7 May 2026 · 4:00 PM</div>
+        <div class="event-venue">Shri Kanjibhapu Upvan Vadi, Savarkundla</div>
+      </div>
+    </div>
+
+    <div class="event-item from-right reveal">
+      <div class="event-dot" style="position:relative;left:auto;transform:none;flex-shrink:0;margin-top:18px;"></div>
+      <div class="event-card">
+        <div class="event-icon">💃</div>
+        <div class="event-name">Raas Garba</div>
+        <div class="event-datetime">Thursday, 7 May 2026 · 6:00 PM</div>
+        <div class="event-venue">Shri Kanjibhapu Upvan Vadi, Savarkundla</div>
+      </div>
+    </div>
+
+    <div class="event-item reveal">
+      <div class="event-dot" style="position:relative;left:auto;transform:none;flex-shrink:0;margin-top:18px;"></div>
+      <div class="event-card">
+        <div class="event-icon">🎊</div>
+        <div class="event-name">Jaan Aagaman &amp; Hast Melaap</div>
+        <div class="event-datetime">Friday, 8 May 2026 · 8:00 AM / 11:45 AM</div>
+        <div class="event-venue">Trupti &amp; Sagar Wedding · Rajula</div>
+      </div>
+    </div>
+
+    <div class="event-item from-right reveal">
+      <div class="event-dot" style="position:relative;left:auto;transform:none;flex-shrink:0;margin-top:18px;"></div>
+      <div class="event-card">
+        <div class="event-icon">💍</div>
+        <div class="event-name">Hast Melaap</div>
+        <div class="event-datetime">Saturday, 9 May 2026 · 7:00 PM</div>
+        <div class="event-venue">Darshan &amp; Anjali Wedding · Rajula</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ VENUE ══════════ -->
+<section class="venue-section">
+  <p class="section-label reveal">Where the Magic Happens</p>
+  <h2 class="section-title reveal">Wedding Venues</h2>
+  <div class="section-line reveal"></div>
+
+  <div class="venue-cards">
+    <div class="venue-card reveal">
+      <div class="venue-icon">🏰</div>
+      <div class="venue-event">Trupti &amp; Sagar · 8 May</div>
+      <div class="venue-name">Nivrutti Sadan (Old Age Home)</div>
+      <div class="venue-addr">Behind Bus Station,<br>Krishna Nagar Society,<br><strong>Rajula</strong></div>
+    </div>
+
+    <div class="venue-card reveal" style="transition-delay:0.2s">
+      <div class="venue-icon">🌺</div>
+      <div class="venue-event">Darshan &amp; Anjali · 9 May</div>
+      <div class="venue-name">Shri Kanjibhapu Upvanvadi</div>
+      <div class="venue-addr">Savarkundla<br><br>
+        <em style="font-size:12px;color:#c9963a;">Pre-wedding events also held here</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ HOST ══════════ -->
+<section class="host-section">
+  <p class="section-label reveal">Warmly Invited By</p>
+  <h2 class="section-title reveal">The Chhotalia Family</h2>
+  <div class="section-line reveal"></div>
+
+  <div class="host-card reveal">
+    <div class="host-flag">🙏</div>
+    <div class="host-name">Shri Vallabhbhai Virajibhai Chhotalia</div>
+    <div class="host-address">
+      "Shyam" Shreejinagar,<br>
+      Hathsani Road, Savarkundla – 364515
+    </div>
+    <div class="host-phone">
+      Mo. 94262 88228 &nbsp;|&nbsp; 94262 70761 &nbsp;|&nbsp; 99094 62816
+    </div>
+  </div>
+
+  <div class="mandala-divider reveal" style="margin-top:48px;">✿ ❧ ✿ ❧ ✿</div>
+  <p class="reveal" style="text-align:center;margin-top:12px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#9a8070;">
+    Please consider this digital card as a personal invitation.<br>Your presence will bless this auspicious occasion.
+  </p>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-title">🪔 Chhotalia Parivar 🪔</div>
+  <p>Shubh Vivah · 8 &amp; 9 May 2026 · Rajula &amp; Savarkundla</p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.4;">Designed with love ♥</p>
+</footer>
+
+<script>
+// ── COUNTDOWN ──
+function updateCountdown() {
+  const target = new Date('2026-05-08T08:00:00');
+  const now = new Date();
+  const diff = target - now;
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '00';
+    document.getElementById('cd-hours').textContent = '00';
+    document.getElementById('cd-mins').textContent = '00';
+    document.getElementById('cd-secs').textContent = '00';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal, .couple-card, .venue-card, .host-card, .event-item').forEach(el => {
+  observer.observe(el);
+});
+
+// ── MUSIC ──
+const btn = document.getElementById('music-btn');
+const audio = document.getElementById('bg-music');
+audio.volume = 0.35;
+let playing = false;
+
+btn.addEventListener('click', () => {
+  if (!playing) {
+    audio.play().then(() => {
+      playing = true;
+      btn.textContent = '🔊';
+      btn.classList.add('playing');
+    }).catch(() => {});
+  } else {
+    audio.pause();
+    playing = false;
+    btn.textContent = '🎵';
+    btn.classList.remove('playing');
+  }
+});
+</script>
+
+</body>
+</html>
